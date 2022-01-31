@@ -1,0 +1,11 @@
+.box-container {
+    display: flex;
+    gap: 2px;
+    justify-content: center;
+}
+
+.box {
+    border: 2px solid black;
+    height: 13vh;
+    width: 15vw;
+}
