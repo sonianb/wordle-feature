@@ -53,10 +53,20 @@ const boxThree = document.getElementById('box3');
 const boxFour = document.getElementById('box4');
 const boxFive = document.getElementById('box5');
 
-document.addEventListener('keypress', (event) => {
+document.addEventListener('keydown', (event) => {
   let letter = event.key;
   console.log(letter);
-  boxOne.innerText = letter;
-});
+//add each newly selected letter in the userWord array
+userWord.push(letter);
+
+// Display each letter of the userWord in each box
+  boxOne.innerText = userWord[0];
+  boxTwo.innerText = userWord[1];
+  boxThree.innerText = userWord[2];
+  boxFour.innerText = userWord[3];
+  boxFive.innerText = userWord[4];
+
+  // Check if the pressed letter is correct and console log the result
+   });
 
 
