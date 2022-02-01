@@ -34,12 +34,12 @@ function generateWord(words) {
 //function that will determine if it the letter is correct and at the right position, misplaced or not correct
 function checkLetter(answer, letter, index) {
   if (answer.charAt(index) === letter) {
-    return 'Well done! The index is at the correct position.'
+    return "correct"
   }
   if (answer.includes(letter)) {
-    return 'The word contains this letter';
+    return "misplaced";
   }
-  return 'Wrong letter and position';
+  return "wrong";
 }
 
 // ********************
@@ -56,20 +56,24 @@ const allBoxes = document.getElementsByClassName('box');
 
 document.addEventListener('keydown', (event) => {
   let letter = event.key;
-  console.log(letter);
-  //add each newly selected letter in the userWord array
+  //add each new letter in the userWord array
   userWord.push(letter);
 
   Array.from(allBoxes).forEach((box, index) => {
     if (userWord[index] !== undefined) {
       box.innerText = userWord[index];
-      console.log(checkLetter(answer, letter, index));
+      // Check if the letter is correct and change the background color accordingly
+      if (checkLetter(answer, userWord[index], index) === 'correct') {
+        box.style.backgroundColor = '#6aaa64';
+      } else if (checkLetter(answer, userWord[index], index) === 'wrong') {
+        box.style.backgroundColor = '#939598';
+      } else if(checkLetter(answer, userWord[index], index) === 'misplaced') {
+        box.style.backgroundColor = '#c9b458';
+      }
     } else {
-      box.innerText ="";
+      box.innerText = "";
     }
   });
-  // Check if the pressed letter is correct and console log the result
-
 });
 
 
