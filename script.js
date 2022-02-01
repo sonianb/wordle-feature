@@ -65,12 +65,9 @@ document.addEventListener('keydown', (event) => {
     userWord.push(letter);
   }
 
-  console.log(letter);
-
-  Array.from(allBoxes).forEach((box, index) => {
-    if (userWord[index] !== undefined) {
-      box.innerText = userWord[index];
-      // Check if the letter is correct and change the background color accordingly
+  //change the background color when the user hits enter
+  if (letter === 'Enter') {
+    Array.from(allBoxes).forEach((box, index) => {
       if (checkLetter(answer, userWord[index], index) === 'correct') {
         box.style.backgroundColor = '#6aaa64';
       } else if (checkLetter(answer, userWord[index], index) === 'wrong') {
@@ -78,6 +75,14 @@ document.addEventListener('keydown', (event) => {
       } else if (checkLetter(answer, userWord[index], index) === 'misplaced') {
         box.style.backgroundColor = '#c9b458';
       }
+    });
+  }
+
+  console.log(letter);
+
+  Array.from(allBoxes).forEach((box, index) => {
+    if (userWord[index] !== undefined) {
+      box.innerText = userWord[index];
     } else {
       box.innerText = "";
     }
