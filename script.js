@@ -46,6 +46,12 @@ function checkLetter(word, letter, index) {
 // * Dom manipulation *
 // ********************
 
+//Select the boxes 
+const boxOne = document.getElementById('box1');
+const boxTwo = document.getElementById('box2');
+const boxThree = document.getElementById('box3');
+const boxFour = document.getElementById('box4');
+const boxFive = document.getElementById('box5');
 
 document.addEventListener('keypress', (event) => {
   let letter = event.key;
