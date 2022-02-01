@@ -56,8 +56,16 @@ const allBoxes = document.getElementsByClassName('box');
 
 document.addEventListener('keydown', (event) => {
   let letter = event.key;
-  //add each new letter in the userWord array
-  userWord.push(letter);
+
+  //use backspace to delete items from userWord 
+  if (letter === 'Backspace') {
+    userWord.pop();
+  } else {
+    //add each new letter in the userWord array
+    userWord.push(letter);
+  }
+
+  console.log(letter);
 
   Array.from(allBoxes).forEach((box, index) => {
     if (userWord[index] !== undefined) {
@@ -67,7 +75,7 @@ document.addEventListener('keydown', (event) => {
         box.style.backgroundColor = '#6aaa64';
       } else if (checkLetter(answer, userWord[index], index) === 'wrong') {
         box.style.backgroundColor = '#939598';
-      } else if(checkLetter(answer, userWord[index], index) === 'misplaced') {
+      } else if (checkLetter(answer, userWord[index], index) === 'misplaced') {
         box.style.backgroundColor = '#c9b458';
       }
     } else {
