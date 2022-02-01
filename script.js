@@ -56,13 +56,15 @@ const allBoxes = document.getElementsByClassName('box');
 
 document.addEventListener('keydown', (event) => {
   let letter = event.key;
+  //restrict the input to letters only 
+  if (event.code.includes("Key")) {
+  //add each new letter in the userWord array
+    userWord.push(letter);
+  }
 
   //use backspace to delete items from userWord 
   if (letter === 'Backspace') {
     userWord.pop();
-  } else {
-    //add each new letter in the userWord array
-    userWord.push(letter);
   }
 
   //change the background color when the user hits enter
@@ -78,8 +80,7 @@ document.addEventListener('keydown', (event) => {
     });
   }
 
-  console.log(letter);
-
+  //display each letter in different boxes unless it's undefined
   Array.from(allBoxes).forEach((box, index) => {
     if (userWord[index] !== undefined) {
       box.innerText = userWord[index];
