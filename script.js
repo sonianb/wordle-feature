@@ -1,3 +1,5 @@
+const boxOne = document.getElementById('box1');
+
 const words = [
     'apple',
     'chair',
@@ -14,10 +16,12 @@ const words = [
   
   //function that will generate a random word from the words array
   function generateWord(words) {
-    return Math.floor(Math.random() * words.length);
+    return words[Math.floor(Math.random() * words.length)];
   }
   
-  console.log(generateWord(words));
+  //store the word in a vairable
+  let word = generateWord(words)
+  console.log(word);
 
   //function that will determine if it the letter is correct and at the right position, misplaced or not correct
 function checkLetter(word, letter, index) {
@@ -29,3 +33,19 @@ function checkLetter(word, letter, index) {
   } 
   return 'Wrong letter and position';
 } 
+
+document.addEventListener('keypress', (event) => {
+  let letter = event.key;
+  console.log(letter);
+  boxOne.innerText = letter;
+
+});
+
+
+
+// input.addEventListener('input', (event)=> {
+//   let letter = event.data;
+//   let result =  checkLetter(word, letter, index);
+//   console.log(result);
+// }
+// );
