@@ -32,11 +32,11 @@ function generateWord(words) {
 }
 
 //function that will determine if it the letter is correct and at the right position, misplaced or not correct
-function checkLetter(word, letter, index) {
-  if (word.charAt(index) === letter) {
+function checkLetter(answer, letter, index) {
+  if (answer.charAt(index) === letter) {
     return 'Well done! The index is at the correct position.'
   }
-  if (word.includes(letter)) {
+  if (answer.includes(letter)) {
     return 'The word contains this letter';
   }
   return 'Wrong letter and position';
@@ -63,19 +63,13 @@ document.addEventListener('keydown', (event) => {
   Array.from(allBoxes).forEach((box, index) => {
     if (userWord[index] !== undefined) {
       box.innerText = userWord[index];
+      console.log(checkLetter(answer, letter, index));
     } else {
       box.innerText ="";
-  // Display each letter of the userWord in each box
-      // boxOne.innerText = userWord[0];
-      // boxTwo.innerText = userWord[1];
-      // boxThree.innerText = userWord[2];
-      // boxFour.innerText = userWord[3];
-      // boxFive.innerText = userWord[4];
     }
-
   });
-
   // Check if the pressed letter is correct and console log the result
+
 });
 
 
