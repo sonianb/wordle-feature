@@ -104,9 +104,9 @@ document.addEventListener('keydown', (event) => {
     displayBackground()
     const wordStr = userWord.join('');
     if (wordStr === answer) {
-      answerFeedback.innerText = "You guessed the word. Well done!"
+      answerFeedback.innerText = "You guessed the word. Well done! 🤩"
     } else {
-      answerFeedback.innerText = "Not quite there yet. Press spacebar to try again."
+      answerFeedback.innerText = "Not quite there yet. Press spacebar to try again. 🙃"
     }
   }
 
