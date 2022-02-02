@@ -42,6 +42,7 @@ function checkLetter(answer, letter, index) {
   return "wrong";
 }
 
+
 // ********************
 // * Dom manipulation *
 // ********************
@@ -67,8 +68,9 @@ document.addEventListener('keydown', (event) => {
     userWord.pop();
   }
 
-  //change the background color when the user hits enter
-  if (letter === 'Enter') {
+
+  //change the background color when the user has selected 5 letters and hits enter
+  if (letter === 'Enter' && userWord.length === 5) {
     Array.from(allBoxes).forEach((box, index) => {
       if (checkLetter(answer, userWord[index], index) === 'correct') {
         box.style.backgroundColor = '#6aaa64';
