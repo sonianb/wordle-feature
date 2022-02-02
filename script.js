@@ -42,6 +42,34 @@ function checkLetter(answer, letter, index) {
   return "wrong";
 }
 
+// **************
+// * UI updates *
+// **************
+
+//display each letter in a different box unless it's undefined
+function displayLetter() {
+  Array.from(allBoxes).forEach((box, index) => {
+    if (userWord[index] !== undefined) {
+      box.innerText = userWord[index];
+    } else {
+      box.innerText = "";
+    }
+  });
+}
+
+//function to change the background color
+function displayBackground() {
+  Array.from(allBoxes).forEach((box, index) => {
+    if (checkLetter(answer, userWord[index], index) === 'correct') {
+      box.style.backgroundColor = '#6aaa64';
+    } else if (checkLetter(answer, userWord[index], index) === 'wrong') {
+      box.style.backgroundColor = '#939598';
+    } else if (checkLetter(answer, userWord[index], index) === 'misplaced') {
+      box.style.backgroundColor = '#c9b458';
+    }
+  });
+}
+
 
 // ********************
 // * Dom manipulation *
@@ -57,39 +85,20 @@ const allBoxes = document.getElementsByClassName('box');
 
 document.addEventListener('keydown', (event) => {
   let letter = event.key;
-  //restrict the input to letters only 
-  if (event.code.includes("Key")) {
-  //add each new letter in the userWord array
-    userWord.push(letter);
+  if (event.code.includes("Key") && userWord.length <= 4) {   //restrict the input to 5 letters only 
+    userWord.push(letter);   //add each new letter in the userWord array
+    console.log(userWord);
   }
 
-  //use backspace to delete items from userWord 
-  if (letter === 'Backspace') {
+  if (letter === 'Backspace') { //use backspace to delete items from userWord 
     userWord.pop();
   }
-
-
-  //change the background color when the user has selected 5 letters and hits enter
   if (letter === 'Enter' && userWord.length === 5) {
-    Array.from(allBoxes).forEach((box, index) => {
-      if (checkLetter(answer, userWord[index], index) === 'correct') {
-        box.style.backgroundColor = '#6aaa64';
-      } else if (checkLetter(answer, userWord[index], index) === 'wrong') {
-        box.style.backgroundColor = '#939598';
-      } else if (checkLetter(answer, userWord[index], index) === 'misplaced') {
-        box.style.backgroundColor = '#c9b458';
-      }
-    });
+    displayBackground()
   }
 
-  //display each letter in different boxes unless it's undefined
-  Array.from(allBoxes).forEach((box, index) => {
-    if (userWord[index] !== undefined) {
-      box.innerText = userWord[index];
-    } else {
-      box.innerText = "";
-    }
-  });
+  displayLetter()
+
 });
 
 
