@@ -70,6 +70,12 @@ function displayBackground() {
   });
 }
 
+function clearBackground() {
+  Array.from(allBoxes).forEach((box) => {
+    box.style.backgroundColor = '#f3f3f3';
+  });
+}
+
 
 // ********************
 // * Dom manipulation *
@@ -85,9 +91,9 @@ const allBoxes = document.getElementsByClassName('box');
 
 document.addEventListener('keydown', (event) => {
   let letter = event.key;
+  console.log(event);
   if (event.code.includes("Key") && userWord.length <= 4) {   //restrict the input to 5 letters only 
     userWord.push(letter);   //add each new letter in the userWord array
-    console.log(userWord);
   }
 
   if (letter === 'Backspace') { //use backspace to delete items from userWord 
@@ -97,6 +103,11 @@ document.addEventListener('keydown', (event) => {
     displayBackground()
   }
 
+  if(event.code === "Space") { //press Space to play again
+    userWord = [];
+    clearBackground();
+  }
+  
   displayLetter()
 
 });
