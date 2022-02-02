@@ -88,6 +88,7 @@ const boxThree = document.getElementById('box3');
 const boxFour = document.getElementById('box4');
 const boxFive = document.getElementById('box5');
 const allBoxes = document.getElementsByClassName('box');
+const answerFeedback = document.getElementById('answer-feedback')
 
 document.addEventListener('keydown', (event) => {
   let letter = event.key;
@@ -101,13 +102,20 @@ document.addEventListener('keydown', (event) => {
   }
   if (letter === 'Enter' && userWord.length === 5) {
     displayBackground()
+    const wordStr = userWord.join('');
+    if (wordStr === answer) {
+      answerFeedback.innerText = "You guessed the word. Well done!"
+    } else {
+      answerFeedback.innerText = "Not quite there yet. Press spacebar to try again."
+    }
   }
 
-  if(event.code === "Space") { //press Space to play again
+  if (event.code === "Space") { //press Space to play again
     userWord = [];
     clearBackground();
+    answerFeedback.innerText = "";
   }
-  
+
   displayLetter()
 
 });
