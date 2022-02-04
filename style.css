@@ -5,7 +5,7 @@
 h1 {
     text-align: center;
     font-size: 2.3rem;
-    font-weight: 800;
+    font-weight: lighter;
 }
 
 .box-container {
@@ -25,13 +25,11 @@ h1 {
     text-transform: uppercase;
     font-size: 2rem;
     line-height: 2rem;
-    font-weight: bold;
 }
 
 #answer-feedback {
     text-align: center;
     padding: 1.7rem;
-    font-weight: 600;
 }
 
 .box-letter {
@@ -41,15 +39,20 @@ h1 {
 .correct {
     background-color: #6aaa64;
     border-color: #6aaa64;
+    color: #ffffff;
 }
 
 .wrong {
     background-color: #939598;
     border-color: #939598;
+    color: #ffffff;
+
 }
 
 .misplaced {
     background-color: #c9b458;
     border-color: #c9b458;
+    color: #ffffff;
+
 }
 
