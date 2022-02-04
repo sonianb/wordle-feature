@@ -51,7 +51,7 @@ function displayLetter() {
   Array.from(allBoxes).forEach((box, index) => {
     if (userWord[index] !== undefined) {
       box.innerText = userWord[index];
-      box.style.borderColor = "#939598"; //change border color on input 
+      box.classList.add('box-letter'); //change border color on input 
     } else {
       box.innerText = "";
     }
@@ -71,9 +71,12 @@ function displayBackground() {
   });
 }
 
-function clearBackground() {
+function resetStyle() {
   Array.from(allBoxes).forEach((box) => {
-    box.classList.add('reset-background');
+    box.classList.remove('correct');
+    box.classList.remove('wrong');
+    box.classList.remove('misplaced');
+    box.classList.remove('box-letter');
   });
 }
 
@@ -95,7 +98,7 @@ document.addEventListener('keydown', (event) => {
 
   if (letter === 'Backspace') { //use backspace to delete items from userWord 
     userWord.pop();
-    clearBackground();
+    resetStyle();
   }
   if (letter === 'Enter' && userWord.length === 5) {
     displayBackground()
@@ -109,7 +112,7 @@ document.addEventListener('keydown', (event) => {
 
   if (event.code === "Space") { //press Space to play again
     userWord = [];
-    clearBackground();
+    resetStyle();
     answerFeedback.innerText = "";
   }
 
