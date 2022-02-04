@@ -62,19 +62,18 @@ function displayLetter() {
 function displayBackground() {
   Array.from(allBoxes).forEach((box, index) => {
     if (checkLetter(answer, userWord[index], index) === 'correct') {
-      box.style.backgroundColor = '#6aaa64';
+      box.classList.add('correct');
     } else if (checkLetter(answer, userWord[index], index) === 'wrong') {
-      box.style.backgroundColor = '#939598';
+      box.classList.add('wrong');
     } else if (checkLetter(answer, userWord[index], index) === 'misplaced') {
-      box.style.backgroundColor = '#c9b458';
+      box.classList.add('misplaced');
     }
   });
 }
 
 function clearBackground() {
   Array.from(allBoxes).forEach((box) => {
-    box.style.backgroundColor = '#ffffff';
-    box.style.borderColor = "#d3d6da";
+    box.classList.add('reset-background');
   });
 }
 
