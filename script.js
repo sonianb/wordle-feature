@@ -51,6 +51,7 @@ function displayLetter() {
   Array.from(allBoxes).forEach((box, index) => {
     if (userWord[index] !== undefined) {
       box.innerText = userWord[index];
+      box.style.borderColor = "#939598"; //change border color on input 
     } else {
       box.innerText = "";
     }
@@ -72,7 +73,8 @@ function displayBackground() {
 
 function clearBackground() {
   Array.from(allBoxes).forEach((box) => {
-    box.style.backgroundColor = '#f3f3f3';
+    box.style.backgroundColor = '#ffffff';
+    box.style.borderColor = "#d3d6da";
   });
 }
 
@@ -99,6 +101,7 @@ document.addEventListener('keydown', (event) => {
 
   if (letter === 'Backspace') { //use backspace to delete items from userWord 
     userWord.pop();
+    clearBackground();
   }
   if (letter === 'Enter' && userWord.length === 5) {
     displayBackground()
