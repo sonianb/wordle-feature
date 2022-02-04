@@ -83,11 +83,6 @@ function clearBackground() {
 // ********************
 
 //Select the boxes 
-const boxOne = document.getElementById('box1');
-const boxTwo = document.getElementById('box2');
-const boxThree = document.getElementById('box3');
-const boxFour = document.getElementById('box4');
-const boxFive = document.getElementById('box5');
 const allBoxes = document.getElementsByClassName('box');
 const answerFeedback = document.getElementById('answer-feedback')
 
