@@ -5,9 +5,10 @@ This is a take-home challenge based on the viral word game, [Wordle](https://www
 - [x] I want to see if the letter I picked is in the correct position, misplaced, or wrong.
 - [x] I want the UI to update based on my answer.
 
-I chose to work on these user stories because they are an important part of the game's logic and it'd be a great challenge to try to re-create them.
+I chose to work on these features because they are an important part of Wordle's logic and thought that it'd be an interesting task to try to re-create them.
 
-## Stretch goals
-- [ ] Add an on-screen keyboard to make the game more mobile-friendly. 
-- [ ] Update the UI with the letters the user has already tested.  
+## Possible improvements
+- Add an on-screen keyboard to make the game mobile-friendly. 
+- Check if the word tested is an actual English word.
+- Display the correct letters tested by the user.  
 
