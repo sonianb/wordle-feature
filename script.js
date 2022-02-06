@@ -22,6 +22,9 @@ console.log(answer);
 //store each letter of the word the user is testing
 let userWord = [];
 
+//variable that will be used to not allow user use 'Baskspace' after hitting enter  
+let finished = false;
+
 // **************
 // * Game logic *
 // **************
@@ -91,12 +94,11 @@ const answerFeedback = document.getElementById('answer-feedback')
 
 document.addEventListener('keydown', (event) => {
   let letter = event.key;
-  console.log(event);
   if (event.code.includes("Key") && userWord.length <= 4) {   //restrict the input to 5 letters only 
     userWord.push(letter);   //add each new letter in the userWord array
   }
 
-  if (letter === 'Backspace') { //use backspace to delete items from userWord 
+  if (letter === 'Backspace' && !finished) { //use backspace to delete items from userWord 
     userWord.pop();
     resetStyle();
   }
@@ -108,6 +110,7 @@ document.addEventListener('keydown', (event) => {
     } else {
       answerFeedback.innerText = "Not quite there yet. Press spacebar to try again. 🙃"
     }
+    finished = true;
   }
 
   if (event.code === "Space") { //press Space to play again
