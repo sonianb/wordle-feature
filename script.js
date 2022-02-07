@@ -113,10 +113,11 @@ document.addEventListener('keydown', (event) => {
     finished = true;
   }
 
-  if (event.code === "Space") { //press Space to play again
+  if (event.code === "Space" && finished) { //press Space to play again
     userWord = [];
     resetStyle();
     answerFeedback.innerText = "";
+    finished = false;
   }
 
   displayLetter()
